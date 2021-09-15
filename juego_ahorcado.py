@@ -11,33 +11,44 @@ def choose_world():
         return selected_word
 
 
-def word_hunter(selected_word):
+def word_hunter(selected_word,game_words,letter):
     ''''''
-    game_words = ['_' for i in range(len(selected_word))]
-    try:
-        letter = input('\nIngresa una letra: ')
-        if len(letter) != 1 or letter.isnumeric():
-            raise TypeError('Ingrese solo una letra')
-    except TypeError as te:
-        os.system('clear')
-        print(te)
-
     if letter in selected_word:
         for i in range(len(selected_word)):
             if letter == selected_word[i]:
                 game_words[i] = letter
-
-    print(''.join(game_words))
-    
+    return ''.join(game_words)
 
 
 def main():
+    selected_word = choose_world() 
+    game_words = ['_' for i in range(len(selected_word))]
+    letter = ''
     os.system('clear')
     print('''\nBienvenido al juego del ahorcado ( ͡° ͜ʖ ͡°)\n''')
-    print('Por favor adivina la palabra')
-    selected_word = choose_world()
+    while True:  
+        print('Adivina la palabra')
+        print(word_hunter(selected_word, game_words, letter))
+        try:
+            letter = input('\nIngresa una letra: ').upper()
+            if len(letter) != 1 or letter.isnumeric():
+                raise TypeError('Ingrese solo una letra')
 
-    word_hunter(selected_word)
+            else:
+                if word_hunter(selected_word, game_words, letter).count('_') > 0:
+                    if letter in word_hunter(selected_word, game_words, letter):
+                        os.system('clear') 
+                        print('Adivina la palabra')       
+                        print(word_hunter(selected_word,game_words, letter))
+                        letter = input('Ingrese otra letra: ').upper()
+                else:
+                    print(word_hunter(selected_word,game_words,letter))
+                    print('Ganaste')
+                    break
+
+        except TypeError as te:
+            print(f'\n{te}')
+            
 
  
 
