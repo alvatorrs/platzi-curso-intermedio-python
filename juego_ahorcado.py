@@ -24,9 +24,9 @@ def main():
     selected_word = choose_world() 
     game_words = ['_' for i in range(len(selected_word))]
     letter = ''
-    os.system('clear')
-    print('''\nBienvenido al juego del ahorcado ( ͡° ͜ʖ ͡°)\n''')
     while True:  
+        os.system('clear')
+        print('''\nBienvenido al juego del ahorcado ( ͡° ͜ʖ ͡°)\n''')
         print('Adivina la palabra')
         print(word_hunter(selected_word, game_words, letter))
         try:
@@ -38,12 +38,12 @@ def main():
                 if word_hunter(selected_word, game_words, letter).count('_') > 0:
                     if letter in word_hunter(selected_word, game_words, letter):
                         os.system('clear') 
+                        print('''\nBienvenido al juego del ahorcado ( ͡° ͜ʖ ͡°)\n''')
                         print('Adivina la palabra')       
                         print(word_hunter(selected_word,game_words, letter))
-                        letter = input('Ingrese otra letra: ').upper()
+                        letter = input('\nIngrese otra letra: ').upper()
                 else:
-                    print(word_hunter(selected_word,game_words,letter))
-                    print('Ganaste')
+                    print('GANASTE!!! la palabra es:',word_hunter(selected_word,game_words,letter))
                     break
 
         except TypeError as te:
