@@ -93,6 +93,7 @@ def main():
 
 
     print('\nAgregando un key a DATA verificando si es  un adulto mayor:')
+    #adultos_mayores = [worker | {'old': worker['age'] > 70} for worker in DATA] Python==3.9
     adultos_mayores = [{**worker, **{'old': worker['age'] > 70}} for worker in DATA]
     for worker in adultos_mayores:
         print(worker)
@@ -121,7 +122,8 @@ def main():
     print(adults)
 
 
-    print('\nAgragando un key a DATA para verificar si es un adulto mayor:')
+    print('\nAgregando un key a DATA para verificar si es un adulto mayor:')
+    #old_people = list(map(lambda worker: worker | {'old': worker['age'] > 70})) Python==3.9
     old_people = list(map(lambda worker: {**worker, **{'old': worker['age'] > 70} }, DATA))
     for worker in old_people:
         print(worker)
