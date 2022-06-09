@@ -123,7 +123,7 @@ def main():
 
 
     print('\nAgregando un key a DATA para verificar si es un adulto mayor:')
-    #old_people = list(map(lambda worker: worker | {'old': worker['age'] > 70})) Python==3.9
+    #old_people = list(map(lambda worker: worker | {'old': worker['age'] > 70}, DATA)) Python==3.9
     old_people = list(map(lambda worker: {**worker, **{'old': worker['age'] > 70} }, DATA))
     for worker in old_people:
         print(worker)
