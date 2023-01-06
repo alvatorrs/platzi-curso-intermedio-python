@@ -1,2 +1,4 @@
 venv/
 requirements.txt
+./modulos/app/__pycache__
+./modulos/pkg/__pycache__

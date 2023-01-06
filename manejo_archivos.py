@@ -16,7 +16,6 @@ def write():
         for name in names:
             f.write(name)  #tambien se puede usar f.write(name + '\n')
             f.write('\n')
-        
 
 
 def main():

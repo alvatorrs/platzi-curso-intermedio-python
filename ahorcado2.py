@@ -24,7 +24,7 @@ def run():
     lives = 5
     letter = ''
     selected_word = read_words()
-    game_word = ['_' for i in range(len(selected_word))]
+    game_word = ['_' for _ in range(len(selected_word))]
 
     while lives > 0:
         os.system('clear')
@@ -53,10 +53,9 @@ def run():
                 else:
                     print('¡Ganaste! √')
                     break
-
         except ValueError as ve:
             return print(ve)
-    
+
 
 if __name__ == '__main__':
     run()

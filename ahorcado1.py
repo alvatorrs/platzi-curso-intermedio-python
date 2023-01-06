@@ -28,7 +28,7 @@ def main():
     print(f'vidas: {"💜" * (lives)}')
     input('Presiona enter para coninuar: ')
     word_selected, ocult_word = word_selector()
-    deaths = 0 
+    deaths = 0
 
     while ocult_word != word_selected and deaths < lives:
         os.system('clear')

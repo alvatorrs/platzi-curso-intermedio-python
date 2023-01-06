@@ -22,7 +22,7 @@ def word_hunter(selected_word,game_words,letter):
 
 def main():
     selected_word = choose_world() 
-    game_words = ['_' for i in range(len(selected_word))]
+    game_words = ['_' for _ in range(len(selected_word))]
     letter = ''
     while True:  
         os.system('clear')
@@ -33,7 +33,6 @@ def main():
             letter = input('\nIngresa una letra: ').upper()
             if len(letter) != 1 or letter.isnumeric():
                 raise TypeError('Ingrese solo una letra')
-
             else:
                 if word_hunter(selected_word, game_words, letter).count('_') > 0:
                     if letter in word_hunter(selected_word, game_words, letter):
@@ -45,12 +44,9 @@ def main():
                 else:
                     print('GANASTE!!! la palabra es:',word_hunter(selected_word,game_words,letter))
                     break
-
         except TypeError as te:
             print(f'\n{te}')
-            
 
- 
 
 if __name__=='__main__':
     main()
